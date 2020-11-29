@@ -1,0 +1,95 @@
+body{
+font-family: 'Times New Roman', Times, serif;
+font-size: 15px;
+margin: 0%;
+background-size: cover;
+
+
+
+
+}
+
+.title{
+
+    text-align: center;
+    padding: 15px;
+}
+
+.listaPokemon{
+    
+    display: grid;
+    grid-template-rows: 1fr,100px,1fr;
+    max-width: 800px;
+    margin-left: 250px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;  
+}
+
+.puchamon{
+    
+    border: 1px solid #333;
+    padding: 1px;
+    background-color:#7E6CB8;
+    text-align: center;
+
+}
+
+.listaHabilidad{
+    display: grid;
+    grid-template-rows: 1fr,100px,1fr;
+    max-width: 800px;
+    margin-left: 600px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;  
+}
+
+.Habilidad{
+    border: 1px solid #333;
+    padding:15px;
+    background: whitesmoke;
+    text-align: center;  
+    margin: auto;
+}
+.Middle{
+    border: 1px solid #333;
+    padding: 1px;
+    background-color:#ADA9BC;
+    
+    text-align: center;
+
+
+
+}
+
+
+
+img{
+    width: 80%;
+
+}
+.button {
+    background-color: #0547; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 16px;
+    cursor: pointer;
+  }
+.button:hover{
+    background-color: #0548;
+
+    
+}
+
+.card-text{
+
+    color: black;
+    
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="estilos.css" >
+</head>
+
+<body background="img/fondo.jpg">
+
+    <h1 class="title">Pokemon Shuffle</h1>
+
+    
+    <button class="button" onclick="ConsultarPokemones()">Generar nuevos Pokemons</button>
+    <br> </br>
+    <button class="button" onclick="ConsultarHabilidades()">Generar nuevas habilidades </button>
+    <br> </br>
+    
+    <div class="listaPokemon" id=listaPokemon >
+        <div class="listaHabilidad" id=listaHabilidad > 
+        <div class="puchamon" id="puchamon1" >
+            <img src="" alt="">
+            <p>     </p>           
+
+      
+            <div class="Habilidad" id="Habilidad1" >
+
+                <p2 class="card-text">    </p2>
+
+            </div>
+
+       
+    </div>
+    
+
+
+    
+       <div class="Middle" style="float: center;">     RANDOM SHUFFLE        </div>
+
+
+
+
+        <div class="puchamon" id="puchamon2" >
+            <img src="" alt="">
+            <p>         </p>
+            
+            <div class="Habilidad" id="Habilidad2" >
+
+                <p2 class="card-text">  </p2>
+
+            </div>
+        </div>   
+        
+           
+    <script>
+
+        let lista2 = document.getElementById("listaHabilidad")
+        function consultarHabilidad(id, num) {
+            fetch(`https://pokeapi.co/api/v2/ability/${id}`)
+                .then(function (response) {
+                    response.json()
+                        .then(function (ability) {
+                            crearHabilidad(ability,num)
+
+                        })
+
+                })
+        }
+        function ConsultarHabilidades() {
+            let primerId = Math.round(Math.random() * 21)
+            let segundoId = Math.round(Math.random() * 21)
+
+            consultarHabilidad(primerId, 1)
+            consultarHabilidad(segundoId, 2)
+                
+
+        }
+
+        function crearHabilidad(ability, num) {
+            let item = lista2.querySelector(`#Habilidad${num}`)
+            let nombre = item.getElementsByTagName("p2")[0]
+            nombre.textContent = ability.name
+
+
+        }
+        ConsultarHabilidades()
+
+
+
+
+        let lista = document.getElementById("listaPokemon")
+
+        function ConsultarPokemon(id, num) {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+                .then(function (response) {
+
+                    response.json()
+                        .then(function (pokemon) {
+                            crearPokemon(pokemon, num)
+
+
+                        })
+
+                })
+
+        }
+
+
+
+
+        function ConsultarPokemones() {
+
+            let primerID = Math.round(Math.random() * 21)
+            let SegundoID = Math.round(Math.random() * 21)
+            ConsultarPokemon(primerID, 1)
+            ConsultarPokemon(SegundoID, 2)
+        }
+
+
+        function crearPokemon(pokemon, num) {
+            let item = lista.querySelector(`#puchamon${num}`)
+
+            let imagen = item.getElementsByTagName("img")[0]
+            imagen.setAttribute("src", pokemon.sprites.front_default)
+            let nombre = item.getElementsByTagName("p")[0]
+            nombre.textContent = pokemon.name
+
+
+        }
+        ConsultarPokemones()
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
